@@ -11,7 +11,6 @@ const resList = [
     minDeliveryTime: 36,
     maxDeliveryTime: 36,
     deliveryTime: "36 MINS",
-    lastMileTravel: 3.5,
     address: "KFC restaurants, 942,SV Tower, 16th Main, BTM 2nd Stage ,560076",
     locality: "2nd Stage",
     parentId: 547,
