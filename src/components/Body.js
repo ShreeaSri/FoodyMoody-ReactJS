@@ -1,8 +1,8 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 const Body = () => {
-  const [resNumber, setResNumber] = useState(resList);
+  const [resNumber, setResNumber] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -10,17 +10,32 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.093211&lng=80.236398&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     const res = await data.json();
 
     console.log(res);
+
+    const newRes =
+      res?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    const newResMap = newRes.map((ele) => ele.info);
+    console.log(newRes);
+    console.log(newResMap);
+
+    setResNumber(newResMap);
   };
 
-  return (
+  //conditional rendering
+  return resNumber.length === 0 ? (
+    <Shimmer></Shimmer>
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input type="text" className="search-box"></input>
+          <button>Search</button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
