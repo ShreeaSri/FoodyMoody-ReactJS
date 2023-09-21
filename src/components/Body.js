@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 const Body = () => {
   const [resNumber, setResNumber] = useState([]);
+  const [filteredResttaurant, setfilteredResttaurant] = useState([]);
+  const [searchResult, setSearchResult] = useState("");
+
+  console.log("body rendered");
 
   useEffect(() => {
     fetchData();
@@ -24,6 +28,7 @@ const Body = () => {
     console.log(newResMap);
 
     setResNumber(newResMap);
+    setfilteredResttaurant(newResMap);
   };
 
   //conditional rendering
@@ -33,21 +38,41 @@ const Body = () => {
     <div className="body">
       <div className="filter">
         <div className="search">
-          <input type="text" className="search-box"></input>
-          <button>Search</button>
+          <input
+            type="text"
+            className="search-box"
+            value={searchResult}
+            onChange={(e) => {
+              setSearchResult(e.target.value);
+            }}
+          ></input>
+          <button
+            onClick={() => {
+              //filter the restaurant cards and update the UI
+              //searchText
+              console.log(searchResult);
+
+              const filteredResttaurant = resNumber.filter((res) =>
+                res.name.toLowerCase().includes(searchResult.toLowerCase())
+              );
+              setfilteredResttaurant(filteredResttaurant);
+            }}
+          >
+            Search
+          </button>
         </div>
         <button
           className="filter-btn"
           onClick={() => {
-            filteredList = resNumber.filter((list) => list.avgRating > 4);
-            setResNumber(filteredList);
+            const filteredList = resNumber.filter((list) => list.avgRating > 4);
+            setfilteredResttaurant(filteredList);
           }}
         >
           Top Rated Restaurants
         </button>
       </div>
       <div className="res-container">
-        {resNumber.map((list) => (
+        {filteredResttaurant.map((list) => (
           <RestaurantCard key={list.id} resData={list} />
         ))}
       </div>
