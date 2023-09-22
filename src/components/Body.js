@@ -23,8 +23,9 @@ const Body = () => {
 
     const newRes =
       res?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    // console.log(newRes);
     const newResMap = newRes.map((ele) => ele.info);
-    console.log(newRes);
+    // console.log(newRes);
     console.log(newResMap);
 
     setResNumber(newResMap);
@@ -50,7 +51,7 @@ const Body = () => {
             onClick={() => {
               //filter the restaurant cards and update the UI
               //searchText
-              console.log(searchResult);
+              // console.log(searchResult);
 
               const filteredResttaurant = resNumber.filter((res) =>
                 res.name.toLowerCase().includes(searchResult.toLowerCase())
