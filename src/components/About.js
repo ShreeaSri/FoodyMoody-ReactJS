@@ -1,5 +1,9 @@
 const About = () => {
-  return <div>Hello, Welcome to FoodyMoody | Mom's Choice</div>;
+  return (
+    <div>
+      <h1>Hello, Welcome to FoodyMoody | Mom's Choice</h1>
+    </div>
+  );
 };
 
 export default About;
