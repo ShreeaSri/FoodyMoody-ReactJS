@@ -44,18 +44,19 @@ const Body = () => {
   return resNumber.length === 0 ? (
     <Shimmer></Shimmer>
   ) : (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="body px-40">
+      <div className="filter flex justify-between ">
+        <div className="search m-4 p-4 ">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchResult}
             onChange={(e) => {
               setSearchResult(e.target.value);
             }}
           ></input>
           <button
+            className="px-6 py-0.5 shadow-lg bg-slate-50 ml-2 mr-0 rounded-2xl"
             onClick={() => {
               //filter the restaurant cards and update the UI
               //searchText
@@ -70,17 +71,22 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredList = resNumber.filter((list) => list.avgRating > 4);
-            setfilteredResttaurant(filteredList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+
+        <div className="search m-4 p-4">
+          <button
+            className="px-4 py-0.5 shadow-lg bg-slate-50 rounded-2xl"
+            onClick={() => {
+              const filteredList = resNumber.filter(
+                (list) => list.avgRating > 4
+              );
+              setfilteredResttaurant(filteredList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap justify-between m-2 p-2">
         {filteredResttaurant.map((list) => (
           <Link key={list.id} to={"/restaurants/" + list.id}>
             <RestaurantCard resData={list} />
