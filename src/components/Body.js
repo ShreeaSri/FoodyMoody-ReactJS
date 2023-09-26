@@ -2,6 +2,8 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 const Body = () => {
   const [resNumber, setResNumber] = useState([]);
   const [filteredResttaurant, setfilteredResttaurant] = useState([]);
@@ -33,6 +35,10 @@ const Body = () => {
     setResNumber(newResMap);
     setfilteredResttaurant(newResMap);
   };
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return <h1>Looks like you are not connected to internet!</h1>;
 
   //conditional rendering
   return resNumber.length === 0 ? (

@@ -9,7 +9,11 @@ class About extends React.Component {
   }
 
   componentDidMount() {
-    // console.log("parent did mount");
+    console.log("parent did mount");
+  }
+
+  componentWillUnmount() {
+    console.log("component will unmount");
   }
 
   render() {
