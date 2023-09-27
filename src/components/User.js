@@ -4,6 +4,7 @@ const User = () => {
       <h2>Name: Shreea</h2>
       <h3>Location: Patna</h3>
       <h4>Contact: @shreea_sri</h4>
+      <h4>Email-shreeasri@gmail</h4>
     </div>
   );
 };
