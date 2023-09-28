@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withDiscountLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -9,7 +9,8 @@ const Body = () => {
   const [filteredResttaurant, setfilteredResttaurant] = useState([]);
   const [searchResult, setSearchResult] = useState("");
 
-  console.log("body rendered");
+  const RestaurantCardDiscount = withDiscountLabel(RestaurantCard);
+  console.log("body rendered", resNumber);
 
   useEffect(() => {
     fetchData();
@@ -86,10 +87,16 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap justify-between m-2 p-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-2 p-2">
         {filteredResttaurant.map((list) => (
           <Link key={list.id} to={"/restaurants/" + list.id}>
-            <RestaurantCard resData={list} />
+            {list &&
+            list.aggregatedDiscountInfoV3 &&
+            list.aggregatedDiscountInfoV3.header ? (
+              <RestaurantCardDiscount resData={list} />
+            ) : (
+              <RestaurantCard resData={list} />
+            )}
           </Link>
         ))}
       </div>
