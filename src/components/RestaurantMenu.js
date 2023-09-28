@@ -42,7 +42,12 @@ const RestaurantMenu = () => {
       </p>
       {/* categories accordian*/}
       {categories.map((c) => {
-        return <RestaurantCategories data={c?.card?.card} />;
+        return (
+          <RestaurantCategories
+            key={c?.card?.card?.title}
+            data={c?.card?.card}
+          />
+        );
       })}
     </div>
   );
