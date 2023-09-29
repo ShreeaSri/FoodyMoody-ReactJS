@@ -1,16 +1,17 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategories = ({ data }) => {
+const RestaurantCategories = ({ data, showItem, setShowItem, closeItem }) => {
   //   console.log(data);
-  const [showItem, setShowItem] = useState(false);
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     setShowItem(!showItem);
   };
+
   return (
     <div>
       {/**header */}
-      <div className="w-6/12 mx-auto my-4 bg-slate-50 shadow p-4 ">
+      <div className="w-6/12 mx-auto my-4 bg-gray-50 shadow p-4 ">
         <div
           className="flex justify-between cursor-pointer"
           onClick={handleClick}
