@@ -10,7 +10,6 @@ const Body = () => {
   const [searchResult, setSearchResult] = useState("");
 
   const RestaurantCardDiscount = withDiscountLabel(RestaurantCard);
-  console.log("body rendered", resNumber);
 
   useEffect(() => {
     fetchData();

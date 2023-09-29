@@ -9,8 +9,6 @@ const RestaurantMenu = () => {
 
   const resInfo = useRestaurantMenu(resId);
 
-  console.log(resInfo);
-
   const [showIndex, setShowIndex] = useState(0);
 
   if (resInfo === null) {
@@ -24,17 +22,12 @@ const RestaurantMenu = () => {
 
   const itemCardsMap = itemCards.map((ele) => ele.card.info);
 
-  console.log(itemCards);
-  console.log(itemCardsMap);
-
   const categories =
     resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-
-  console.log(categories);
 
   return resInfo === null ? (
     <Shimmer />
