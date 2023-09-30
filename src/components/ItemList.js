@@ -6,8 +6,8 @@ const ItemList = ({ items }) => {
   //dispatching the action
   const dispatch = useDispatch();
 
-  const handleAdditem = () => {
-    dispatch(addItem("pizza"));
+  const handleAdditem = (item) => {
+    dispatch(addItem(item));
   };
 
   return (
@@ -28,7 +28,7 @@ const ItemList = ({ items }) => {
             <div className="absolute ">
               <button
                 className="p-2 mx-16 rounded-lg shadow-lg bg-black text-white"
-                onClick={handleAdditem}
+                onClick={() => handleAdditem(item)}
               >
                 Add +
               </button>
