@@ -1,4 +1,6 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
+
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +25,7 @@ class UserClass extends React.Component {
     });
   }
   componentDidUpdate() {
-    console.log("component updated");
+    // console.log("component updated");
   }
 
   render() {
