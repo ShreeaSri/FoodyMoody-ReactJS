@@ -1,18 +1,18 @@
 {
-  "id": "87869",
-  "name": "McDonald's",
-  "cloudinaryImageId": "ee5f8e06b300efc07c9fe3f4df40dfc4",
-  "locality": "Brigade Road",
-  "areaName": "Ashok Nagar",
-  "costForTwo": "₹400 for two",
-  "cuisines": ["Burgers", "Beverages", "Cafe", "Desserts"],
-  "avgRating": 4.4,
+  "id": "10575",
+  "name": "Pizza Hut",
+  "cloudinaryImageId": "2b4f62d606d1b2bfba9ba9e5386fabb7",
+  "locality": "Shanti Nagar",
+  "areaName": "Shanti Nagar",
+  "costForTwo": "₹600 for two",
+  "cuisines": ["Pizzas"],
+  "avgRating": 3.9,
   "feeDetails": {
-    "restaurantId": "87869",
+    "restaurantId": "10575",
     "fees": [
       {
         "name": "BASE_DISTANCE",
-        "fee": 4200
+        "fee": 3800
       },
       {
         "name": "BASE_TIME"
@@ -21,52 +21,36 @@
         "name": "ANCILLARY_SURGE_FEE"
       }
     ],
-    "totalFee": 4200
+    "totalFee": 3800
   },
-  "parentId": "630",
-  "avgRatingString": "4.4",
+  "parentId": "721",
+  "avgRatingString": "3.9",
   "totalRatingsString": "5K+",
   "sla": {
-    "deliveryTime": 25,
-    "lastMileTravel": 2.2,
+    "deliveryTime": 24,
+    "lastMileTravel": 2.1,
     "serviceability": "SERVICEABLE",
-    "slaString": "25 mins",
-    "lastMileTravelString": "2.2 km",
+    "slaString": "24 mins",
+    "lastMileTravelString": "2.1 km",
     "iconType": "ICON_TYPE_EMPTY"
   },
   "availability": {
-    "nextCloseTime": "2023-10-01 22:45:00",
+    "nextCloseTime": "2023-10-02 01:00:00",
     "opened": true
   },
-  "badges": {
-    "textExtendedBadges": [
-      {
-        "iconId": "guiltfree/GF_Logo_android_3x",
-        "shortDescription": "options available",
-        "fontColor": "#7E808C"
-      }
-    ]
-  },
+  "badges": {},
   "isOpen": true,
-  "aggregatedDiscountInfoV2": {},
   "type": "F",
   "badgesV2": {
     "entityBadges": {
       "imageBased": {},
       "textBased": {},
-      "textExtendedBadges": {
-        "badgeObject": [
-          {
-            "attributes": {
-              "description": "",
-              "fontColor": "#7E808C",
-              "iconId": "guiltfree/GF_Logo_android_3x",
-              "shortDescription": "options available"
-            }
-          }
-        ]
-      }
+      "textExtendedBadges": {}
     }
+  },
+  "aggregatedDiscountInfoV3": {
+    "header": "50% OFF",
+    "subHeader": "UPTO ₹100"
   },
   "differentiatedUi": {
     "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
