@@ -29,7 +29,8 @@ const Body = () => {
       res?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
     // console.log(newRes);
-    const newResMap = newRes.map((ele) => ele.info);
+
+    const newResMap = newRes && newRes.map((ele) => ele.info);
     // console.log(newRes);
     console.log(newResMap);
 
@@ -44,7 +45,7 @@ const Body = () => {
   const { loggedInuser, setuserInfo } = useContext(UserContext);
 
   //conditional rendering
-  return resNumber.length === 0 ? (
+  return Array.isArray(resNumber) && resNumber.length === 0 ? (
     <Shimmer></Shimmer>
   ) : (
     <div className="body px-40">
@@ -54,6 +55,7 @@ const Body = () => {
             <input
               type="text"
               className="border border-solid border-black"
+              data-testid="searchInput"
               value={searchResult}
               onChange={(e) => {
                 setSearchResult(e.target.value);
@@ -100,17 +102,19 @@ const Body = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-2 p-2">
-        {filteredResttaurant.map((list) => (
-          <Link key={list.id} to={"/restaurants/" + list.id}>
-            {list &&
-            list.aggregatedDiscountInfoV3 &&
-            list.aggregatedDiscountInfoV3.header ? (
-              <RestaurantCardDiscount resData={list} />
-            ) : (
-              <RestaurantCard resData={list} />
-            )}
-          </Link>
-        ))}
+        {Array.isArray(filteredResttaurant) &&
+          filteredResttaurant.length > 0 &&
+          filteredResttaurant.map((list) => (
+            <Link key={list.id} to={"/restaurants/" + list.id}>
+              {list &&
+              list.aggregatedDiscountInfoV3 &&
+              list.aggregatedDiscountInfoV3.header ? (
+                <RestaurantCardDiscount resData={list} />
+              ) : (
+                <RestaurantCard resData={list} />
+              )}
+            </Link>
+          ))}
       </div>
     </div>
   );
